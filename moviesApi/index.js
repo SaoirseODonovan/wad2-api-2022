@@ -7,6 +7,9 @@ import './seedData';
 import usersRouter from './api/users';
 import session from 'express-session';
 import passport from './authenticate';
+import upcomingMoviesRouter from './api/upcomingMovies';
+import { loadUpcomingMovies } from './seedData';
+
 
 dotenv.config();
 
@@ -30,11 +33,12 @@ app.use(express.json());
 
 app.use('/api/genres', genresRouter);
 app.use('/api/users', usersRouter);
+// eslint-disable-next-line no-irregular-whitespace
 // Add passport.authenticate(..)  to middleware stack for protected routes​
 app.use('/api/movies', passport.authenticate('jwt', {session: false}), moviesRouter);
+app.use('/api/upcomingMovies', passport.authenticate('jwt', {session: false}), upcomingMoviesRouter);
+//api with id needed here?
 app.use(errHandler);
-
-
 
 app.listen(port, () => {
   console.info(`Server running at ${port}`);
