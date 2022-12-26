@@ -1,6 +1,6 @@
 {
     "env": {
-        "node": true,
+        "browser": true,
         "es2021": true
     },
     "extends": [
@@ -20,5 +20,4 @@
         "semi": 1,
         "no-console": "off"
     }
-  
 }

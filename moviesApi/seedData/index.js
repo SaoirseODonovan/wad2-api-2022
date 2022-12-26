@@ -5,8 +5,8 @@ import genreModel from '../api/genres/genreModel';
 import genres from './genres';
 import movieModel from '../api/movies/movieModel';
 import movies from './movies.js';
-import upcomingMovies from './upcomingMovies';
-import upcomingMoviesModel from '../api/upcomingMovies/upcomingMoviesModel';
+// import upcomingMovies from './upcomingMovies';
+// import upcomingMoviesModel from '../api/upcomingMovies/upcomingMoviesModel';
 
 
 dotenv.config();
@@ -57,14 +57,14 @@ export async function loadMovies() {
   }
 }
 
-export async function loadUpcomingMovies() {
-  console.log('load seed data for upcoming movies');
-  console.log(upcomingMovies.length);
-  try {
-    await upcomingMoviesModel.deleteMany();
-    await upcomingMoviesModel.collection.insertMany(upcomingMovies);
-    console.info(`${upcomingMovies.length} Upcoming movies were successfully stored.`);
-  } catch (err) {
-    console.error(`failed to Load upcoming movie Data: ${err}`);
-  }
-}
+// export async function loadUpcomingMovies() {
+//   console.log('load seed data for upcoming movies');
+//   console.log(upcomingMovies.length);
+//   try {
+//     await upcomingMoviesModel.deleteMany();
+//     await upcomingMoviesModel.collection.insertMany(upcomingMovies);
+//     console.info(`${upcomingMovies.length} Upcoming movies were successfully stored.`);
+//   } catch (err) {
+//     console.error(`failed to Load upcoming movie Data: ${err}`);
+//   }
+// }
